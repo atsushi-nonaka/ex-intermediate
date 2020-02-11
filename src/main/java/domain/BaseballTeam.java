@@ -3,43 +3,63 @@ package domain;
 import java.util.Date;
 
 /**
- * 野球チームのドメインクラス
+ * 野球チームのドメインクラス.
  * 
  * @author nonaa
  *
  */
 public class BaseballTeam {
-	/** 名前 */
-	private String name;
+	/** ID */
+	private Integer id;
+	/** リーグ名 */
+	private String leagueName;
+	/** チーム名 */
+	private String teamName;
 	/** 本拠地 */
-	private String place;
+	private String headquarters;
 	/** 発足 */
-	private Date establishmentDate;
+	private String inauguration;
 	/** 歴史 */
 	private String history;
 
-	public String getName() {
-		return name;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getPlace() {
-		return place;
+	public String getLeagueName() {
+		return leagueName;
 	}
 
-	public void setPlace(String place) {
-		this.place = place;
+	public void setLeagueName(String leagueName) {
+		this.leagueName = leagueName;
 	}
 
-	public Date getEstablishmentDate() {
-		return establishmentDate;
+	public String getTeamName() {
+		return teamName;
 	}
 
-	public void setEstablishmentDate(Date establishmentDate) {
-		this.establishmentDate = establishmentDate;
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+
+	public String getHeadquarters() {
+		return headquarters;
+	}
+
+	public void setHeadquarters(String headquarters) {
+		this.headquarters = headquarters;
+	}
+
+	public String getInauguration() {
+		return inauguration;
+	}
+
+	public void setInauguration(String inauguration) {
+		this.inauguration = inauguration;
 	}
 
 	public String getHistory() {
@@ -52,8 +72,8 @@ public class BaseballTeam {
 
 	@Override
 	public String toString() {
-		return "BaseballTeam [name=" + name + ", place=" + place + ", establishmentDate=" + establishmentDate
-				+ ", history=" + history + "]";
+		return "BaseballTeam [id=" + id + ", leagueName=" + leagueName + ", teamName=" + teamName + ", headquarters="
+				+ headquarters + ", inauguration=" + inauguration + ", history=" + history + "]";
 	}
 
 }
