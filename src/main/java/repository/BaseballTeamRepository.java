@@ -43,7 +43,7 @@ public class BaseballTeamRepository {
 	/**
 	 * 野球チームの全件検索.
 	 * 
-	 * @return
+	 * @return チームリスト
 	 */
 	public List<BaseballTeam> findAll(){
 		String sql = "SELECT id, league_name, team_name, headquarters, inauguration, history FROM " + TABLE_NAME;

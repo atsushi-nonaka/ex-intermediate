@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import domain.BaseballTeam;
 
 /**
- * 野球チーム一覧情報を検索する処理の記述
+ * 野球チーム一覧情報を検索する処理の記述.
  * 
  * @author nonaa
  *
