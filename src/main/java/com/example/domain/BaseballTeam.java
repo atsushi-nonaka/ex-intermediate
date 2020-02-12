@@ -1,6 +1,4 @@
-package domain;
-
-import java.util.Date;
+package com.example.domain;
 
 /**
  * 野球チームのドメインクラス.

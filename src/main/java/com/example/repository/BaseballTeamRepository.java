@@ -1,15 +1,16 @@
-package repository;
+package com.example.repository;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import domain.BaseballTeam;
+import com.example.domain.BaseballTeam;
 
 /**
  * teamsテーブルを操作するレポジトリ.
@@ -46,9 +47,22 @@ public class BaseballTeamRepository {
 	 * @return チームリスト
 	 */
 	public List<BaseballTeam> findAll(){
-		String sql = "SELECT id, league_name, team_name, headquarters, inauguration, history FROM " + TABLE_NAME;
-		List<BaseballTeam> teamList = new LinkedList<BaseballTeam>();
+		String sql = "SELECT id, league_name, team_name, headquarters, inauguration, history FROM " + TABLE_NAME + " ORDER BY inauguration";
+		List<BaseballTeam> teamList = new ArrayList<BaseballTeam>();
 		teamList = template.query(sql, BaseballTeam_ROW_MAPPER);
 		return teamList;
+	}
+	
+	/**
+	 * 野球チームの1件検索.
+	 * 
+	 * @param id ID
+	 * @return 
+	 */
+	public BaseballTeam load(Integer id) {
+		String sql = "SELECT id, league_name, team_name, headquarters, inauguration, history FROM " + TABLE_NAME + " WHERE id = :id";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
+		BaseballTeam baseballTeam = template.queryForObject(sql, param, BaseballTeam_ROW_MAPPER);
+		return baseballTeam;
 	}
 }
