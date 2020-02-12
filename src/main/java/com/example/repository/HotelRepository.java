@@ -43,16 +43,29 @@ public class HotelRepository {
 	};
 	
 	/**
-	 * 価格以下のホテルを検索する
+	 * 価格以下のホテルを検索する(価格順).
 	 * 
-	 * @return
+	 * @return ホテルリスト
 	 */
 	public List<Hotel> findByLessThanPrice(Integer price){
 		String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking "
-				     + "FROM " + TABLE_NAME + " WHERE price <= :price";
+				     + "FROM " + TABLE_NAME + " WHERE price <= :price ORDER BY price";
 		
 		SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);
 		List<Hotel> hotelList = template.query(sql, param, Hotel_ROW_MAPPER);
 		return hotelList;
 	}
+	
+	/**
+	 * ホテルを全件検索する(価格順).
+	 * 
+	 * @return ホテルリスト
+	 */
+	public List<Hotel> findAll(){
+		String sql = "SELECT id, area_name, hotel_name, address, nearest_station, price, parking "
+				     + "FROM " + TABLE_NAME  + " ORDER BY price";
+		
+		List<Hotel> hotelList = template.query(sql, Hotel_ROW_MAPPER);
+		return hotelList;
+	} 
 }

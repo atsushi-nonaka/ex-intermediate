@@ -30,4 +30,14 @@ public class HotelService {
 		List<Hotel> hotelList = hotelRepository.findByLessThanPrice(price);
 		return hotelList;
 	}
+	
+	/**
+	 * 全てのホテルを検索する.
+	 * 
+	 * @return ホテルリスト
+	 */
+	public List<Hotel> searchAll(){
+		List<Hotel> hotelList = hotelRepository.findAll();
+		return hotelList;
+	}
 }
