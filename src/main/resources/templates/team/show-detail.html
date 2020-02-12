@@ -13,7 +13,12 @@
 		<h3>発足</h3>
 			<span th:text="${baseballTeam.inauguration}"></span>
 		<h3>歴史</h3>
-			<div th:text="${baseballTeam.history}"></div>
+			<th:block th:if="${baseballTeam.history}">
+			    <th:block th:each="str, teamHistory : ${baseballTeam.history.split('\r\n|\r|\n', -1)}">
+			        <th:block th:text="${str}"/>
+			        <br th:if="${!teamHistory.last}"/>
+			    </th:block>
+			</th:block>
 		<button>戻る</button>
 	</form>
 </body>

@@ -42,7 +42,7 @@ public class BaseballTeamRepository {
 	};
 	
 	/**
-	 * 野球チームの全件検索.
+	 * 野球チームの全件検索（発足順）.
 	 * 
 	 * @return チームリスト
 	 */
@@ -57,7 +57,7 @@ public class BaseballTeamRepository {
 	 * 野球チームの1件検索.
 	 * 
 	 * @param id ID
-	 * @return 
+	 * @return 野球チーム
 	 */
 	public BaseballTeam load(Integer id) {
 		String sql = "SELECT id, league_name, team_name, headquarters, inauguration, history FROM " + TABLE_NAME + " WHERE id = :id";

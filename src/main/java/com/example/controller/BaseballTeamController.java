@@ -38,8 +38,15 @@ public class BaseballTeamController {
 		return "team/show-list";
 	}
 	
+	/**
+	 * 野球チーム詳細ページの出力.
+	 * 
+	 * @param id ID
+	 * @param model リクエストスコープ
+	 * @return 野球チーム詳細表示html
+	 */
 	@RequestMapping("/show-detail")
-	public String showList(Integer id, Model model) {
+	public String showDetail(Integer id, Model model) {
 		BaseballTeam baseballTeam = baseballTeamService.load(id);
 		model.addAttribute("baseballTeam", baseballTeam);
 		return "team/show-detail";
